@@ -1,4 +1,4 @@
-from plex_posters.lib import export
+from plex_posters.library import export
 from plex_posters.__header__ import __header__ as header
 from typing import Callable, Union
 import os

@@ -1,6 +1,6 @@
 from __future__ import annotations
 from .config.config import Config
-from .lib import set_config
+from .library import set_config
 from .__header__ import __header__
 import logging
 from logging.handlers import RotatingFileHandler
