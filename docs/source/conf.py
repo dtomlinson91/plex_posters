@@ -36,6 +36,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
+    'sphinx.ext.todo',
 ]
 
 # -- Napoleon Settings -----------------------------------------------------
@@ -81,10 +82,13 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_static_path = ['_static']
 html_context = {'css_files': ['_static/custom.css']}
 html_theme_options = {
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'display_version': True,
     #'navigation_depth': 3,
 }
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+# Enable todo
+todo_include_todos = True

@@ -15,3 +15,17 @@
     padding: 1px 5px;
     border-left: 2px solid #ddd;
 }
+
+.wy-menu-vertical header, .wy-menu-vertical p.caption{
+    color: ##466A54;;
+}
+
+.wy-side-nav-search{
+    background-color: #0E6458;
+}
+
+.rst-content dl:not(.docutils) dt{
+    background: #F2E7D3;
+    color: #499265;
+    border-top: solid 3px #87CB7C;
+}

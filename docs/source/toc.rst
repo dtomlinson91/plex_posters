@@ -5,6 +5,7 @@
 
    introduction
    configuration
+   changelog
 
 .. toctree::
    :maxdepth: 4
