@@ -1,0 +1,160 @@
+poetry add --dev sphinx
+poetry add --dev sphinx_rtd_theme
+
+
+Numpy docstrings: https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard
+
+
+Parameters - passed to the __init__
+
+Attributes - anything set in the class (e.g self.value is an attribute)
+
+Arguments - anything passed to a method
+
+
+References:
+
+reference classes in docstrings with
+:class:`~module.submodule.Class`
+
+ (one of "module", "class", "exception", "function", "method", "attribute") ?
+
+:py:mod:
+    Reference a module; a dotted name may be used. This should also be used for package names.
+:py:func:
+    Reference a Python function; dotted names may be used. The role text needs not include trailing parentheses to enhance readability; they will be added automatically by Sphinx if the add_function_parentheses config value is True (the default).
+:py:data:
+    Reference a module-level variable.
+:py:const:
+    Reference a “defined” constant. This may be a Python variable that is not intended to be changed.
+:py:class:
+    Reference a class; a dotted name may be used.
+:py:meth:
+    Reference a method of an object. The role text can include the type name and the method name; if it occurs within the description of a type, the type name can be omitted. A dotted name may be used.
+:py:attr:
+    Reference a data attribute of an object.
+:py:exc:
+    Reference an exception. A dotted name may be used.
+:py:obj:
+    Reference an object of unspecified type. Useful e.g. as the default_role.
+
+
+
+Misc
+           .. seealso:: blabla
+          .. warnings also:: blabla
+          .. note:: blabla
+          .. todo:: blabla
+
+
+
+sphinx-quickstart
+sphinx-apidoc -o source ../src/plex_posters
+
+sphinx-apidoc --ext-autodoc --separate --module-first -o source/modules ../src/plex_posters
+
+
+ls -l | awk '{print $7}'
+
+to get a list to add to toc
+
+
+Replace
+
+plex\_posters.config.config module
+==================================
+
+with
+
+.. include:: ../global.rst
+
+Config :modname:`plex_posters.config`
+------------------------------------
+
+for each rst in the /modules dir to set the formatting and title properly
+
+
+
+Handling the toctree with submodules:
+
+If you want the submodules link to appear in the toctree:
+
+1. module with a submodules as the main:
+
+Your toctree should just contain a link to the base module, all the submodules will automatially be filled under the submodule header:
+
+toc.rst:
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Overview
+   :titlesonly:
+
+   introduction
+   configuration
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Modules
+   :titlesonly:
+
+   modules/plex_posters.rst
+
+
+all other submodules should include the submodules and toctree as normal
+
+eg. config.rst:
+.. include:: ../global.rst
+
+Config :modname:`plex_posters.config`
+-------------------------------------------
+
+.. automodule:: plex_posters.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+.. toctree::
+
+   plex_posters.config.config
+
+
+2. If you dont want the submodule layout, and would rather link to each submodule directly 
+
+Remove the 
+
+
+Submodules
+----------
+
+.. toctree::
+
+   plex_posters.config.config
+
+from each of the module *rst files. Including the main module. 
+
+Refer to each module you want referenced in the toc.rst explicitly 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Overview
+   :titlesonly:
+
+   introduction
+   configuration
+
+.. toctree::
+   :maxdepth: 4
+   :caption: Modules
+   :titlesonly:
+
+   modules/plex_posters.rst
+   modules/plex_posters.config.config.rst
+   modules/plex_posters.lib.rst
+
+
+
+

@@ -1,0 +1,28 @@
+[name]
+
+[name.module]
+anything generic to the module
+
+[name.header]
+specific values for different sections
+
+[name.logging]
+logging configurations
+
+
+
+
+[plexapi]
+
+[plexapi.reddit]
+client_id =
+client_secret = 
+user_agent = 
+
+[plexapi.logging]
+backup_count = 3
+format = "%(asctime)s %(module)12s:%(lineno)-4s %(levelname)-9s %(message)s"
+level = "INFO"
+path = ~/.config/plexapi/plexapi.log
+rotate_bytes = 512000
+secrets = false

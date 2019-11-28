@@ -1,0 +1,78 @@
+Creating a config class
+
+can have a toml/ini in ~/.config/module/config.toml to read the values in
+
+os.path.expanduser('~') - expands the tilde to the home directory
+
+suggestion: save configs in ~/.config/module
+
+os.environ.get('VIRTUAL_ENVs', expand) - will get the env variable and fall back to the default afterwards if its not specified. 
+
+Method to read from an os env, and then fall back on another way if it doesnt exist:
+
+    def get(self, key, default=None, cast=None):
+        """ Returns the specified configuration value or <default> if not found.
+            Parameters:
+                key (str): Configuration variable to load in the format '<section>.<variable>'.
+                default: Default value to use if key not found.
+                cast (func): Cast the value to the specified type before returning.
+        """
+        try:
+            # First: check environment variable is set
+            envkey = 'PLEXAPI_%s' % key.upper().replace('.', '_')
+            value = os.environ.get(envkey)
+            if value is None:
+                # Second: check the config file has attr
+                section, name = key.lower().split('.')
+                value = self.data.get(section, {}).get(name, default)
+            return cast(value) if cast else value
+        except:  # noqa: E722
+            return default
+
+
+- To open a config .toml:
+    toml.load(file) where file has a default value of the ~/.config/module/module.toml
+    If the toml file doesn't exist, nor has a path been passed in, pass and fall back to other methods (os envs, cli)
+
+- Have a get method, that checks the config file for the result, and then tries the env variable.
+
+
+
+-- set the path to the toml in the __init__.py, check for a config file override path and fall back to default if not
+
+# Load User Defined Config
+DEFAULT_CONFIG_PATH = os.path.expanduser('~/.config/plexapi/config.ini')
+CONFIG_PATH = os.environ.get('PLEXAPI_CONFIG_PATH', DEFAULT_CONFIG_PATH)
+CONFIG = PlexConfig(CONFIG_PATH)
+
+- each module/submodule should have the header set to the section it corresponds to in the .toml file.
+
+e.g a reddit module that needs access to the reddit options should have
+__section__ = 'reddit'
+
+this would correspond to
+[reddit]
+PLEXPOSTERS_REDDIT_ env var
+
+
+-- the __init__ of the module should instantiate this config class:
+
+# Load User Defined Config
+DEFAULT_CONFIG_PATH = os.path.expanduser('~/.config/plexapi/config.ini')
+CONFIG_PATH = os.environ.get('PLEXAPI_CONFIG_PATH', DEFAULT_CONFIG_PATH)
+CONFIG = PlexConfig(CONFIG_PATH)
+
+other modules can import this instantiated class
+
+the __init__ of the module should also set all the default values as capital vars e.g. 
+
+PLEX_USERNAME = plexPosterConfig.get(f'{__section__}.username')
+
+
+
+
+
+
+
+
+
