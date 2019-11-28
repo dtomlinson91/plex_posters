@@ -16,16 +16,36 @@
     border-left: 2px solid #ddd;
 }
 
+/*colour of the text in the toc*/
 .wy-menu-vertical header, .wy-menu-vertical p.caption{
-    color: ##466A54;;
+    color: #b26d46;;
 }
 
+/*colour of the top left header*/
 .wy-side-nav-search{
-    background-color: #0E6458;
+    background-color: #31465a;
 }
 
+/*colours of the class definitions*/
 .rst-content dl:not(.docutils) dt{
-    background: #F2E7D3;
-    color: #499265;
-    border-top: solid 3px #87CB7C;
+    background: #e2d7d1;
+    color: #0b2852;
+    border-top: solid 3px #31465a;
+}
+
+/*colour of the link in the class defintions*/
+.rst-content .viewcode-link, .rst-content .viewcode-back{
+    color: #4b674a;
+}
+
+/*colour of the function definitions*/
+.rst-content dl:not(.docutils) dl dt{
+    border-left: solid 3px #31465a;
+    background: #e2d7d1;
+    color: #0b2852;
+}
+
+/*colour of the link in the function definitions*/
+.rst-content .viewcode-link, .rst-content .viewcode-back{
+    color: #4b674a;
 }
