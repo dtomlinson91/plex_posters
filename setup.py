@@ -8,7 +8,7 @@ packages = \
 ['plex_posters',
  'plex_posters.__dev',
  'plex_posters.config',
- 'plex_posters.lib']
+ 'plex_posters.library']
 
 package_data = \
 {'': ['*'],
