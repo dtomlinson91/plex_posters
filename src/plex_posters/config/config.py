@@ -16,7 +16,8 @@ class Config:
     Attributes
     ----------
     config_file : dict
-        Contains the config options. See :meth:`~plex_posters.config.config.Config.read_config`
+        Contains the config options. See
+        :meth:`~plex_posters.config.config.Config.read_config`
         for the data structure.
     deferred_messages : list
         A list containing the messages to be logged once the logger has been
@@ -46,7 +47,7 @@ class Config:
         path : str
             Path to config file. Should not contain `config.toml`
 
-            Example: `path = '~/.config/plex_posters'`
+            Example: ``path = '~/.config/plex_posters'``
 
         Returns
         -------
@@ -57,14 +58,16 @@ class Config:
             dictionary containing a key, value pair for each config under
             that header.
 
-            Example:
+            Example::
 
-            [plex_posters]
+                [plex_posters]
 
-            [plex_posters.foo]
-            foo = bar
+                [plex_posters.foo]
+                foo = bar
 
-            Returns a dict: {'plex_posters' : {foo: {'foo': 'bar'}}}
+            Returns a dict:
+
+                ``{'plex_posters' : {foo: {'foo': 'bar'}}}``
         """
 
         path += 'config.toml' if path[-1] == '/' else '/config.toml'

@@ -14,4 +14,4 @@ Subpackages
 .. toctree::
 
    plex_posters.config
-   plex_posters.lib
+   plex_posters.library

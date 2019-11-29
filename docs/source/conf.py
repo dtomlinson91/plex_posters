@@ -84,6 +84,7 @@ html_context = {'css_files': ['_static/custom.css']}
 html_theme_options = {
     'collapse_navigation': True,
     'display_version': True,
+    'prev_next_buttons_location': 'both',
     #'navigation_depth': 3,
 }
 

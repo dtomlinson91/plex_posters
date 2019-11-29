@@ -20,5 +20,5 @@
    :titlesonly:
 
    modules/plex_posters.config.config.rst
-   modules/plex_posters.lib.rst
+   modules/plex_posters.library.rst
 
