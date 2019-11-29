@@ -82,6 +82,6 @@
 }
 
 /*variables text*/
-dl.class dd > table.docutils.field-list tbody tr.field-odd.field th.field-name::before{
-    content: '(Class/Instance Attributes) ';
+dl.class > dd > table.docutils.field-list tbody tr.field-odd.field th.field-name::break-after: {
+    content: ' (Class/Instance Attributes)';
 }
