@@ -59,8 +59,8 @@
 .rst-content pre.literal-block, .rst-content div[class^="highlight"] pre, .rst-content .linenodiv pre{
     background: #b4bec8;
     color: black;
-    border-style: solid;
-    border-width: thin;
+    /*border-style: solid;*/
+    /*border-width: thin;*/
 }
 
 /*colour of inline code blocks using ``*/
