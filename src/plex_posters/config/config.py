@@ -13,6 +13,11 @@ class Config:
     """Handles the config options for the module and stores config variables
     to be shared.
 
+    Parameters
+    ----------
+    path : str
+        Path to config file
+
     Attributes
     ----------
     config_file : dict
@@ -29,10 +34,7 @@ class Config:
 
     def __init__(self, path: str) -> None:
         """
-        Parameters
-        ----------
-        path : str
-            Path to config file
+        See :class:`plex_posters.config.config.Config` for parameters."
         """
         self.config_file = self.read_config(path)
         self.module_name = header.lower()
