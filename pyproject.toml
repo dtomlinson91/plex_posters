@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "plex-posters"
-version = "0.1.4"
+version = "0.1.5"
 description = ""
 authors = ["dtomlinson <dtomlinson@panaetius.co.uk>"]
 
