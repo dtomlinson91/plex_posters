@@ -58,9 +58,18 @@
 /*code example blocks*/
 .rst-content pre.literal-block, .rst-content div[class^="highlight"] pre, .rst-content .linenodiv pre{
     background: #b4bec8;
-    color: black;
-    /*border-style: solid;*/
-    /*border-width: thin;*/
+    color: #393C40;
+    border-style: groove;
+    border-width: thick;
+    border-color: #9098a0;
+    width: fit-content;
+}
+
+/*code block highlight color + border*/
+
+.highlight {
+    border: none;
+    background: none;
 }
 
 /*colour of inline code blocks using ``*/

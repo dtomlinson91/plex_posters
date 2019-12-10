@@ -41,7 +41,6 @@ class Config:
         self.deferred_messages = []
 
     def read_config(self, path: str) -> Union[dict, None]:
-
         """Reads the toml config file from `path` if it exists.
 
         Parameters
@@ -111,6 +110,7 @@ class Config:
         """
         env_key = f"{header}_{key.upper().replace('.', '_')}"
         # self.defer_log(self.config_file)
+
         try:
             # look in the config.toml
             section, name = key.lower().split('.')
@@ -121,8 +121,10 @@ class Config:
             self.defer_log(f'{env_key} not found in config.toml')
         except TypeError:
             pass
+
         # look for an environment variable
         value = os.environ.get(env_key)
+
         if value is not None:
             self.defer_log(f'{env_key} found in an environment variable')
         else:
