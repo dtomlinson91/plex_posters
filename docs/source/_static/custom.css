@@ -72,6 +72,10 @@
     background: none;
 }
 
+.rst-content pre.literal-block, .rst-content div[class^="highlight"]{
+    border: none;
+}
+
 /*colour of inline code blocks using ``*/
 .rst-content tt.literal, .rst-content tt.literal, .rst-content code.literal{
     color: #b26d46;
